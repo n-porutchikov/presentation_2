@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мейерхольд · Любимов — Люди, которые изменили театр</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --velvet:#170506; --velvet-2:#240808; --wine:#3a0b10; --wine-2:#5a1220;
+  --gold:#c9a961; --gold-2:#e0c88a; --gold-3:#8b7440;
+  --bone:#f0e6d2; --bone-2:#c9bda6; --muted:#8a7a6a; --muted-2:#5a4d42;
+  --line:rgba(201,169,97,.28); --line-2:rgba(201,169,97,.12);
+  --page-w:210mm; --page-h:297mm;
+  --page-pad-x:15mm; --page-pad-top:13mm; --page-pad-bottom:15mm;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{min-width:0;background:#0a0303;}
+body{
+  font-family:"Fraunces","Georgia",serif;background:#0a0303;color:var(--bone);
+  -webkit-font-smoothing:antialiased;font-feature-settings:"lnum","kern","liga","ss01";
+  margin:0;padding:24px 0 60px;
+}
+.deck{width:var(--page-w);margin:0 auto;display:flex;flex-direction:column;gap:24px;}
+.slide{
+  position:relative;width:var(--page-w);height:var(--page-h);min-height:var(--page-h);
+  flex:0 0 var(--page-h);background:var(--velvet);
+  padding:var(--page-pad-top) var(--page-pad-x) var(--page-pad-bottom);
+  isolation:isolate;overflow:hidden;
+  box-shadow:0 28px 70px -20px rgba(0,0,0,.9),0 0 0 1px rgba(201,169,97,.15);
+  break-after:page;page-break-after:always;break-inside:avoid;page-break-inside:avoid;
+}
+.slide:last-child{break-after:auto;page-break-after:auto;}
+.slide::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 30px,rgba(255,255,255,.025) 60px,rgba(0,0,0,0) 90px,rgba(0,0,0,.35) 120px);
+  pointer-events:none;z-index:0;opacity:.7;
+}
+.slide::after{
+  content:"";position:absolute;top:-320px;left:50%;transform:translateX(-50%);
+  width:1200px;height:600px;
+  background:radial-gradient(ellipse at 50% 100%,rgba(224,200,138,.16) 0%,rgba(224,200,138,.06) 25%,transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.frame{position:absolute;inset:7mm;border:1px solid var(--line);pointer-events:none;z-index:2;}
+.frame::before,.frame::after{content:"";position:absolute;width:22px;height:22px;border:1px solid var(--gold);}
+.frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+.chrome{
+  position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;
+  min-height:9mm;padding-bottom:4mm;font-family:"Jost",sans-serif;font-size:9px;
+  letter-spacing:2.8px;text-transform:uppercase;color:var(--bone-2);font-weight:400;
+  border-bottom:1px solid var(--line-2);margin-bottom:7mm;
+}
+.chrome-mark,.chrome-folio{display:flex;align-items:center;gap:10px;}
+.chrome-mark::before{content:"";width:5px;height:5px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 10px rgba(201,169,97,.6);}
+.chrome-folio b{font-family:"Fraunces",serif;font-weight:400;font-style:italic;font-size:15px;color:var(--gold-2);letter-spacing:0;text-transform:none;}
+.chrome-folio .sep{color:var(--gold-3);margin:0 3px;}
+
+h1{font-family:"Fraunces",serif;font-weight:300;font-size:62px;line-height:.94;letter-spacing:-.03em;color:var(--bone);margin-bottom:20px;}
+h1 .kicker{display:block;font-family:"Italiana",serif;font-size:.20em;letter-spacing:.48em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:400;}
+h1 em{font-style:italic;font-weight:300;color:var(--gold-2);text-shadow:0 0 30px rgba(224,200,138,.25);}
+
+h2{font-family:"Fraunces",serif;font-weight:300;font-size:38px;line-height:1.03;letter-spacing:-.025em;color:var(--bone);margin-bottom:18px;max-width:24ch;}
+h2 em{font-style:italic;font-weight:300;color:var(--gold-2);}
+h2 .kicker{display:block;font-family:"Jost",sans-serif;font-size:8.5px;font-weight:500;letter-spacing:3.1px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+
+h3{display:flex;align-items:center;gap:11px;font-family:"Jost",sans-serif;font-size:8.5px;font-weight:500;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);margin:18px 0 9px;}
+h3::before{content:"";width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+p,li{font-family:"Fraunces",serif;font-size:14.2px;line-height:1.48;color:var(--bone-2);margin-bottom:9px;font-weight:300;letter-spacing:.002em;max-width:62ch;font-variation-settings:"opsz" 14,"SOFT" 40;}
+p strong,p b,li strong,li b{color:var(--bone);font-weight:500;font-style:italic;}
+p em{color:var(--gold-2);font-style:italic;font-weight:400;}
+
+.dropcap::first-letter{font-family:"Fraunces",serif;font-weight:300;font-style:italic;font-size:4.6em;line-height:.82;float:left;padding:5px 13px 0 0;color:var(--gold-2);text-shadow:0 0 25px rgba(224,200,138,.3);}
+
+ul{padding-left:0;list-style:none;margin-bottom:12px;}
+ul li{padding-left:27px;position:relative;margin-bottom:7px;}
+ul li::before{content:"";position:absolute;left:6px;top:10px;width:5px;height:5px;background:var(--gold);transform:rotate(45deg);}
+ul li:nth-child(even)::before{background:var(--gold-3);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.two-col.wide-left{grid-template-columns:1.1fr 1fr;}
+.two-col.narrow-left{grid-template-columns:1fr 1.15fr;}
+.two-col.stretch{align-items:stretch;}
+
+.img-col{
+  min-height:560px;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.img-col > .img-frame{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+}
+.img-col > .img-frame > .nat{
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  min-height:0;
+}
+
+.img-duo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  align-items:stretch;
+  min-height:420px;
+  margin-top:20px;
+}
+.img-duo > div{display:flex;flex-direction:column;min-width:0;}
+.img-duo .img-frame{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;}
+.img-duo .img-frame > .nat{width:100%;height:100%;max-height:none;object-fit:contain;min-height:0;}
+
+.img-frame{
+  position:relative;padding:8px;
+  background:linear-gradient(180deg,rgba(201,169,97,.06),rgba(201,169,97,.02));
+  border:1px solid var(--line);
+  box-shadow:inset 0 0 30px rgba(201,169,97,.05),0 16px 30px -18px rgba(0,0,0,.8);
+  overflow:hidden;display:block;width:100%;max-width:100%;
+}
+.img-frame::before,.img-frame::after{content:"";position:absolute;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);z-index:3;box-shadow:0 0 10px rgba(201,169,97,.7);}
+.img-frame::before{top:-3px;left:-3px;}
+.img-frame::after{bottom:-3px;right:-3px;}
+
+.nat{
+  display:block;width:100%;height:auto;max-height:520px;object-fit:contain;
+  background:#0f0303;position:relative;z-index:1;border-radius:2px;
+  -webkit-user-select:none;user-select:none;
+}
+.nat.xs{max-height:280px;}
+.nat.sm{max-height:360px;}
+.nat.md{max-height:440px;}
+.nat.lg{max-height:540px;}
+
+.img-hero{
+  display:flex;justify-content:center;align-items:center;
+  width:100%;margin:4mm 0 5mm;
+}
+.img-hero > .img-frame{display:inline-block;width:auto;max-width:100%;padding:8px;}
+.img-hero > .img-frame > .nat{display:block;width:auto;height:auto;max-width:100%;max-height:130mm;object-fit:contain;background:#0f0303;}
+
+.caption{
+  font-family:"Jost",sans-serif;font-size:8px;letter-spacing:2.3px;text-transform:uppercase;
+  color:var(--muted);margin-top:11px;display:flex;align-items:center;gap:9px;font-weight:400;
+}
+.caption::before{content:"";width:20px;height:1px;background:var(--gold-3);}
+
+.stat{padding:14px 0;border-top:1px solid var(--line-2);display:flex;align-items:baseline;gap:16px;}
+.stat:last-child{border-bottom:1px solid var(--line-2);}
+.stat .n{font-family:"Fraunces",serif;font-weight:300;font-style:italic;font-size:52px;line-height:.85;letter-spacing:-.03em;color:var(--gold-2);text-shadow:0 0 25px rgba(224,200,138,.25);}
+.stat .lbl{font-family:"Jost",sans-serif;font-size:8.5px;letter-spacing:2.3px;text-transform:uppercase;color:var(--muted);max-width:22ch;line-height:1.6;font-weight:400;}
+
+blockquote{
+  position:relative;padding:4px 0 4px 40px;margin:15px 0;
+  font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+  font-size:16px;line-height:1.4;color:var(--bone);letter-spacing:-.005em;
+}
+blockquote::before{content:"“";position:absolute;left:0;top:-15px;font-family:"Fraunces",serif;font-style:normal;font-weight:300;font-size:70px;line-height:1;color:var(--gold);text-shadow:0 0 25px rgba(201,169,97,.4);}
+blockquote p{font:inherit;color:inherit;margin:0;max-width:none;}
+.quote-author{display:block;font-family:"Jost",sans-serif;font-style:normal;font-size:8px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muted);margin-top:9px;font-weight:500;}
+.quote-author::before{content:"—— ";color:var(--gold);}
+
+.big-num{
+  position:absolute;right:-20px;bottom:-90px;font-family:"Fraunces",serif;font-weight:300;font-style:italic;
+  font-size:340px;line-height:.82;letter-spacing:-.05em;color:transparent;
+  -webkit-text-stroke:1px rgba(201,169,97,.14);pointer-events:none;z-index:1;user-select:none;
+}
+
+.title-slide{padding-top:12mm;padding-bottom:18mm;}
+.title-slide .chrome{border-bottom:1px solid var(--line);margin-bottom:7mm;}
+.title-slide h1{text-align:center;max-width:900px;margin:0 auto 16px;}
+.title-slide .lead{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:17px;line-height:1.4;color:var(--bone-2);max-width:650px;margin:0 auto 24px;text-align:center;letter-spacing:-.005em;}
+.title-slide .lead em{color:var(--gold-2);font-weight:400;}
+
+.bulbs{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:18px;position:relative;z-index:3;}
+.bulbs i{display:block;width:3px;height:3px;border-radius:50%;background:var(--gold);box-shadow:0 0 5px rgba(224,200,138,.7),0 0 11px rgba(224,200,138,.35);}
+.bulbs i:nth-child(3n+2){background:var(--gold-3);box-shadow:none;}
+
+.stage-footer{
+  position:absolute;left:0;right:0;bottom:8mm;text-align:center;
+  font-family:"Italiana",serif;font-size:8.5px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--muted);z-index:3;
+}
+.stage-footer .diamond{color:var(--gold);margin:0 11px;text-shadow:0 0 10px rgba(201,169,97,.5);}
+
+/* Слайд 5 */
+.slide:nth-child(5) .img-hero > .img-frame > .nat{max-height:100mm;}
+.slide:nth-child(5) p{font-size:12.6px;line-height:1.4;margin-bottom:6px;}
+.slide:nth-child(5) h2{font-size:32px;margin-bottom:12px;}
+.slide:nth-child(5) .img-hero{margin:2mm 0 3mm;}
+
+/* Слайд 6 */
+.slide:nth-child(6) > div > .img-frame:last-child > img{
+  max-height:72mm !important;width:auto;max-width:100%;margin:0 auto;
+}
+
+/* Слайд 11 */
+.slide:nth-child(11) h2{font-size:30px;margin-bottom:10px;}
+.slide:nth-child(11) .img-hero{margin:2mm 0 3mm;}
+.slide:nth-child(11) .img-hero > .img-frame > .nat{max-height:105mm;}
+.slide:nth-child(11) p{font-size:11.4px;line-height:1.36;margin-bottom:5px;}
+.slide:nth-child(11) blockquote{font-size:11.6px;line-height:1.34;margin:6px 0;padding-left:26px;}
+.slide:nth-child(11) blockquote::before{font-size:40px;top:-6px;}
+.slide:nth-child(11) .quote-author{font-size:7.2px;margin-top:5px;letter-spacing:1.8px;}
+
+/* Слайд 3 */
+.s03 h2{font-size:30px;margin-bottom:12px;}
+.s03 > div > p{font-size:13px;line-height:1.42;margin-bottom:8px;max-width:none;}
+.s03 .img-hero{margin:3mm 0 1mm;}
+.s03 .img-hero > .img-frame{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:72mm;
+  padding:8px;
+}
+.s03 .img-hero > .img-frame > .nat{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:none;
+  max-width:100%;
+  object-fit:contain;
+}
+.s03 .cap-line{
+  text-align:center;
+  font-family:"Jost",sans-serif;
+  font-size:8px;
+  letter-spacing:2.3px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 3mm;
+  font-weight:400;
+}
+
+/* ===========================================================
+   СЛАЙД 16 — обе фотографии одинакового размера
+   Рамки: 72mm (как на слайде 3).
+   object-fit: cover — картинка заполняет всю рамку,
+   поэтому визуальные размеры фото совпадают.
+   =========================================================== */
+.s16 h2{font-size:30px;margin-bottom:10px;}
+.s16 > div > p{font-size:12.2px;line-height:1.4;margin-bottom:6px;max-width:none;}
+.s16 .img-hero{margin:3mm 0 1mm;}
+.s16 .img-hero > .img-frame{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:72mm;
+  padding:8px;
+}
+.s16 .img-hero > .img-frame > .nat{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:none;
+  max-width:100%;
+  object-fit:cover;    /* ← ключевое: обе картинки заполняют рамку целиком */
+}
+.s16 .img-hero:last-child{margin-bottom:0;}
+
+@media screen and (max-width:900px){
+  body{padding:12px 0 35px;overflow-x:auto;}
+  .deck{gap:14px;}
+}
+@media screen and (max-width:700px){
+  body{padding:8px 0 20px;}
+  .deck{width:100%;align-items:center;}
+  .slide{width:min(100vw,210mm);height:auto;min-height:0;aspect-ratio:210 / 297;flex:0 0 auto;padding:6.5vw 5vw 7vw;}
+  .frame{inset:2.4vw;}
+  .chrome{font-size:7px;letter-spacing:2px;margin-bottom:3.5vw;}
+  h1{font-size:8.2vw;} h2{font-size:5.2vw;}
+  p,li{font-size:1.9vw;line-height:1.48;}
+  .two-col{gap:4vw;}
+  .img-col{min-height:38vw;}
+  .img-duo{min-height:32vw;gap:3vw;}
+  .img-hero > .img-frame > .nat{max-height:34vw;}
+  .stat .n{font-size:7vw;} .big-num{font-size:44vw;} .stage-footer{font-size:1.4vw;}
+}
+
+@page{size:A4 portrait;margin:0;}
+@media print{
+  html,body{width:210mm;min-width:210mm;margin:0 !important;padding:0 !important;background:var(--velvet) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{overflow:visible !important;}
+  .deck{width:210mm;margin:0;padding:0;display:block;}
+  .slide{
+    width:210mm;height:297mm;min-height:297mm;max-height:297mm;margin:0 !important;
+    padding:var(--page-pad-top) var(--page-pad-x) var(--page-pad-bottom);
+    box-shadow:none;overflow:hidden;
+    break-after:page !important;page-break-after:always !important;
+    break-inside:avoid !important;page-break-inside:avoid !important;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .slide:last-child{break-after:auto !important;page-break-after:auto !important;}
+}
+</style>
+</head>
+
+<body>
+<div class="deck">
+
+  <!-- 01 -->
+  <section class="slide title-slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Всеволод Мейерхольд · 1874 — 1940</span>
+      <span class="chrome-folio"><b>01</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div class="bulbs">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <div style="position:relative;z-index:2;">
+      <h1>
+        <span class="kicker">Карл Казимир Теодор Майергольд</span>
+        Всеволод<br>
+        <em>Мейерхольд</em>
+      </h1>
+
+      <p class="lead"><em>1874 — 1940</em></p>
+
+      <div class="img-hero" style="margin-top:2mm;">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/scmFtN9/1.jpg" alt="Всеволод Мейерхольд" style="max-height:100mm;">
+        </div>
+      </div>
+
+      <p class="dropcap">Родился в Пензе, был 8 ребёнком в лютеранской немецкой семье винозаводчика Эмилия Фёдоровича Майергольда и его жены Альвины Даниловны. В 1895 году он окончил Пензенскую 2-ю мужскую гимназию и поступил на юридический факультет Московского университета. В том же году принял православие и изменил своё имя на Всеволод — в честь любимого писателя Всеволода Гаршина. В 1896 году перешёл на 2-й курс Театрально-музыкального училища Московского филармонического общества в классе В.И. Немировича-Данченко. В 1898 году вошёл в труппу создаваемого Художественно- общедоступного театра.</p>
+    </div>
+
+    <div class="stage-footer">
+      <span class="diamond">◆</span> Мейерхольд <span class="diamond">◆</span>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Театр условности · 1906</span>
+      <span class="chrome-folio"><b>02</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Петербург · Комиссаржевская</span>
+        Театр <em>условности</em>
+      </h2>
+
+      <p class="dropcap">С 1906 года В.Э. Мейерхольд работает в Петербурге в Театре В.Ф. Комиссаржевской, выпускает за сезон 13 спектаклей. В 1907 году ставит «Балаганчик» А. Блока — спектакль стал началом «театра условности».</p>
+      <p>Это был новый для того времени спектакль, где переплелись формы марионеточного театра с театром живых актеров. Суфлер по задумке влезал в свою будку уже во время действия. Актера, который озвучивал авторский текст, утаскивали со сценки за веревку.</p>
+      <p>Декорации были предельно лаконичными, а в конце постановки они подымались под потолок. После премьеры одни зрители бешено аплодировали режиссеру, другие — освистывали его.</p>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/nsYsvJY9/2.jpg" alt="Балаганчик · Лирические сцены Александра Блока" style="max-height:105mm;">
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">II</div>
+    <div class="stage-footer"><span class="diamond">◆</span> «Балаганчик» · 1907 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 03 -->
+  <section class="slide s03">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Александрийский театр · 1908</span>
+      <span class="chrome-folio"><b>03</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Драматическая и оперная труппы</span>
+        <em>Александрийский</em> театр
+      </h2>
+
+      <p>С сентября 1908 г. Мейерхольд получил приглашение работать в Александринский театре в качестве актера и режиссера драматической и оперной трупп. Он поставил 19 спектаклей, в том числе такие шедевры как «Дон Жуан» и «Маскарад». Премьера «Маскарада» состоялась 25 февраля 1917 года в день февральской революции и продержался в репертуаре до начала Великой Отечественной войны, когда его создателя уже не было в живых.</p>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/Fbv8cRvJ/3.jpg" alt="Александрийский театр">
+        </div>
+      </div>
+      <div class="cap-line">Александрийский театр</div>
+
+      <div class="img-hero" style="margin-top:0;">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/vvfsYxGV/3-1.jpg" alt="Маскарад, 1917">
+        </div>
+      </div>
+      <div class="cap-line" style="margin-bottom:0;">Masquerade, 1917.</div>
+    </div>
+
+    <div class="big-num">III</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 19 спектаклей · «Маскарад» <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 04 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Революция · ГосТиМ · 1920</span>
+      <span class="chrome-folio"><b>04</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div class="two-col stretch" style="position:relative;z-index:3;grid-template-columns:1fr 1.05fr;">
+      <div>
+        <h2>
+          <span class="kicker">Свой театр</span>
+          Революция и собственный театр <em>Мейерхольда</em>
+        </h2>
+
+        <p class="dropcap">Мейерхольд принял революцию и в 1918 году вступил в коммунистическую партию. Первый революционный спектакль «Мистерия-буфф» по пьесе В. Маяковского в оформлении К. Малевича. Спектакль стал героическим, эпическим и сатирическим изображением той эпохи.</p>
+        <p>В 1920 году в Москве создаёт свой театр – Государственный театр имени Вс. Мейерхольда (ГосТиМ). Выпускает свои легендарные спектакли: «Великодушный рогоносец», «Смерть Тарелкина», «Ревизор»«Горе уму» и др.</p>
+        <p>В тот период произошли перемены в личной жизни режиссера. В 1924 году в ГосТиМе дебютировала молодая актриса Зинаида Райх (бывшая жена Сергея Есенина).</p>
+      </div>
+
+      <div class="img-col">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/zH2S9Dxv/4.jpg" alt="Революция и театр Мейерхольда">
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">IV</div>
+    <div class="stage-footer"><span class="diamond">◆</span> «Мистерия-буфф» · ГосТиМ <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 05 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Райх и Мейерхольд · 1922</span>
+      <span class="chrome-folio"><b>05</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Одна из главных светских пар столицы</span>
+        Отношения Зинаиды Райх и <em>Всеволода Мейерхольда</em>
+      </h2>
+
+      <div class="img-hero" style="margin-top:2mm;">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/FLSzT4pJ/5.jpg" alt="Зинаида Райх и Всеволод Мейерхольд" style="max-height:100mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p>Познакомились они в 1922 году. Отношения Зинаиды с режиссёром развиваются стремительно. Мейерхольд шлёт первой жене телеграмму: «Приезжаю с новой женой, прошу освободить квартиру». Играет свадьбу с Райх. А в это время в Москве говорят так: «Мастер строит спектакль, как строит дом», и оказаться в этом доме хотя бы дверной ручкой было счастьем. Мейерхольд усыновляет двух её детей от Сергея Есенина. У её детей всё самое лучшее: игрушки, учителя, врачи. За отношениями одной из главных светских пар столицы следит весь город. Есенин начинает хотеть вернуть жену и часто приходит к ним в гости, Зина вдруг понимает, что единственная ее любовь – это Есенин.</p>
+        </div>
+        <div>
+          <p>«Райх актрисой не была — ни плохой, ни хорошей. Щедрая природа одарила её чувственными губами на лице, круглым как тарелка, задом величиной с громадный ресторанный поднос». Играет она ужасно, но режиссеру все равно. Он говорит: «Зачем талант, когда есть я».</p>
+          <p>В 1934 году Мейерхольд поставил «Даму с камелиями» с Зинаидой Райх в главной роли. Спектакль не понравился Иосифу Сталину, советские критики обрушились на режиссера с обвинениями в эстетстве. Райх отправила Сталину письмо, в котором написала, что он не разбирается в искусстве. Театр стали обвинять в том, что он оторван от советских реалий, не придерживается курса социалистического реализма, ставит пьесы писателей, которые оказались врагами народа. В 1938 году театр Всеволода Мейерхольда закрыли.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">V</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 1922 · 1938 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 06 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Биомеханика · Тело актёра</span>
+      <span class="chrome-folio"><b>06</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">От внешнего — к внутреннему</span>
+        Основы <em>биомеханики</em>
+      </h2>
+
+      <div class="two-col stretch" style="grid-template-columns:1fr 1.15fr;">
+        <div>
+          <p class="dropcap">Мейерхольд был убежден, что осмысление любой роли происходит не от внутреннего к внешнему, как в системе Станиславского, а наоборот. Именно язык тела, выразительность движений вызывают нужную эмоцию и создают необходимый образ. Предполагается, что физическая натренированность актера помогает ему быстрее и качественнее перевоплощаться.</p>
+          <p>Биомеханика Мейерхольда включала в себя серию упражнений, направленных на развитие физической силы, гибкости, координации и выразительности. Огромную роль играла работа с телом. Мейерхольд проводил тренировочные занятия по ритмической гимнастике, танцу и акробатике, Упражнения по биомеханике включали в себя работу над выразительностью глаз и рук, а также тренировки по стрельбе из лука или по закуриванию сигары.</p>
+          <p>Гротеск и условность были частью концепции условного театра. Всеволод Мейерхольд изучал традиции комедии дель арте, японского театра кабуки, античного театра и цирка. Через гротеск он показывал трагическую условность человеческих отношений.</p>
+        </div>
+
+        <div class="img-col">
+          <div class="img-frame">
+            <img class="nat" src="https://i.ibb.co/39n0fbVW/6.jpg" alt="Биомеханика Мейерхольда">
+          </div>
+        </div>
+      </div>
+
+      <div class="img-frame" style="margin-top:12px;">
+        <img src="https://i.ibb.co/nqmPbMHk/6-1.jpg" alt="Упражнения по биомеханике" style="display:block;width:auto;height:auto;max-width:100%;max-height:72mm;margin:0 auto;object-fit:contain;background:#0f0303;border-radius:2px;position:relative;z-index:1;">
+      </div>
+    </div>
+
+    <div class="big-num">VI</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Ритм · Жест · Движение <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 07 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Система Мейерхольда</span>
+      <span class="chrome-folio"><b>07</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Актёр на сцене</span>
+        Система <em>Мейерхольда</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/QFKbsdz7/7.jpg" alt="Система Мейерхольда" style="max-height:170mm;">
+        </div>
+      </div>
+
+      <p>Актеры не должны было и нельзя было идти на сцену, чтобы на сцену, чтобы на сцену, чтобы на сцену, чтобы на сцену, чтобы сцену, чтобы на сцену, чтобы сцену, чтобы на сцену, чтобы сцену, чтобы сцену, чтобы сцену, чтобы на сцену, чтобы на сцену,</p>
+    </div>
+
+    <div class="big-num">VII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Сцена · Движение <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 08 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Гротеск · Условность</span>
+      <span class="chrome-folio"><b>08</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Трагическая условность человеческих отношений</span>
+        Гротеск, условность и <em>физическая выразительность</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/NnGbhyr5/8.jpg" alt="Гротеск и условность" style="max-height:130mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Гротеск и условность были частью концепции условного театра. Всеволод Мейерхольд изучал традиции комедии дель арте, японского театра кабуки, античного театра и цирка. Через гротеск он показывал трагическую условность человеческих отношений.</p>
+        </div>
+        <div>
+          <p>Физическая выразительность была основой метода Мейерхольда — «биомеханики». Это система актёрского тренинга, направленная на внешнее, физическое выражение внутреннего состояния персонажа через точные, ритмически организованные движения.</p>
+          <p>Мейерхольд считал, что правильно построенное движение автоматически вызывает соответствующее эмоциональное состояние. Он утверждал, что психическое состояние актёра должно быть следствием правильного физического действия, а не наоборот.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">VIII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Движение рождает эмоцию <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 09 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Мейерхольд и Вахтангов · 1924</span>
+      <span class="chrome-folio"><b>09</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Дружба и преемственность</span>
+        Всеволод Мейерхольд и <em>Евгений Вахтангов</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/xqDbMRyX/9.jpg" alt="Мейерхольд и Вахтангов" style="max-height:135mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Всеволод Эмильевич дружил с Евгением Вахтанговым. После смерти Вахтангова Мейерхольд был одним из тех, кто помогал его ученикам отстоять свою самостоятельность, воспрепятствовать слиянию с МХАТ.</p>
+        </div>
+        <div>
+          <p>25 июня 1924 года вахтанговцы пишут письмо К.С. Станиславскому, подчёркивая, что обращаются одновременно и к Станиславскому, и к Мейерхольду. Их цель – сохранить Студию, продолжить дело, начатое Учителем: «Мы зовём к себе Всеволода Эмильевича Мейерхольда, мы зовём к себе величайшего мастера новых театральных форм, мастера, который по выражению Евгения Богратионовича, «даёт карни театрам будущего».</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">IX</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 25 июня 1924 · Студия <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Станиславский о Мейерхольде · 1905</span>
+      <span class="chrome-folio"><b>10</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div class="two-col stretch" style="position:relative;z-index:3;grid-template-columns:1.1fr 1fr;">
+      <div>
+        <h2>
+          <span class="kicker">Театр-студия на Пресне</span>
+          Станиславский <em>про Мейерхольда</em>
+        </h2>
+
+        <p class="dropcap">В 1905 году режиссер Константин Станиславский задумал открыть в Москве Театр-студию. Всеволод Мейерхольд написал ему, что мечтает стать режиссером в этой студии. Станиславский предложил Мейерхольду подготовить несколько постановок, однако после генеральных репетиций спектакли не выпустил и экспериментальную студию закрыл.</p>
+
+        <blockquote>
+          <p>«Талантливый режиссер пытался закрыть собою артистов, которые в его руках являлись простой глиной для лепки красивых групп, мизансцен, с помощью которых он осуществлял свои интересные идеи. Но при отсутствии артистической техники у актеров он смог только демонстрировать свои идеи, принципы, искания, осуществлять же их было нечем, не с кем, и потому интересные замыслы студии превратились в отвлеченную теорию, в научную формулу».</p>
+          <span class="quote-author">К. С. Станиславский</span>
+        </blockquote>
+      </div>
+
+      <div class="img-col">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/5gv8w6VP/10.jpg" alt="Константин Станиславский">
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">X</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 1905 · Театр-студия <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Арест · 1939</span>
+      <span class="chrome-folio"><b>11</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">20 июня 1939 · Ленинград</span>
+        Арест <em>режиссёра</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/F4hqXvMy/11.jpg" alt="Всеволод Мейерхольд. Фото из следственного дела" style="max-height:105mm;">
+        </div>
+      </div>
+
+      <p class="dropcap">Творчество Мейерхольда было омерзительно Сталину. Он разгромил спектакль «Дама с камелиями», где главную роль сыграла Зинаида Райх. В ответ она написала вождю письмо, где обвиняла его в отсутствии вкуса и советовала взять пару уроков у Мейерхольда. 20 июня 1939 года в Ленинграде Мейерхольда арестуют. В это же самое время в его московской квартире идёт обыск. В протоколе обыска сохранена жалоба Зинаиды Райх — актриса протестует против методов НКВД. Менее чем через месяц Райх убили. (17 наживых).</p>
+
+      <blockquote>
+        <p>«Вот моя исповедь, краткая, как полагается за секунду до смерти. Я никогда не был шпионом. Я никогда не занимался контрреволюционной деятельностью...Меня здесь били — больного шестидесятилетнего старика, клали на пол лицом вниз, резиновым жгутом били по пяткам и по спине, когда сидел на стуле, той же резиной били по ногам и по местам от колен до верхних частей ног. И в следующие дни, когда эти места ног были залиты обильным внутренним кровоизлиянием, то по этим красно-синим-желтым кровоподтекам снова били этим жгутом (я кричал и плакал от боли). Меня били по спине этой резиной, меня били по лицу размахами с высоты».</p>
+        <span class="quote-author">В. Э. Мейерхольд</span>
+      </blockquote>
+
+      <p>После месяца допросов и пыток Мейерхольд подписывает показания против самого себя. 2 февраля 1940 года Мейерхольда расстреляли. Его обвинили в том, что он был агентом немецкой, японской, латвийской и прочих разведок. В 1955 году Верховным судом СССР гения режиссуры Мейерхольда посмертно реабилитировали.</p>
+    </div>
+
+    <div class="big-num">XI</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 2 февраля 1940 · 1955 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Наследие</span>
+      <span class="chrome-folio"><b>12</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Память и школа</span>
+        <em>Наследие</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/svQnFVT3/12.jpg" alt="Памятник Мейерхольду, Райх и Есенину" style="max-height:125mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Год спустя, после реабилитации, внучка режиссера Мария Валентей установила на могиле Зинаиды Райх на Ваганьковском кладбище общий памятник супругам. В 80-е годы стало известно, что прах Мейерхольда захоронен в «Общей могиле № 1» на Донском кладбище, его прах смешан с прахом других жертв.</p>
+        </div>
+        <div>
+          <p>В 70-е ученики стали восстанавливать наследие режиссёра. Сегодня его имя носит центр Мейерхольда. В Москве есть музей Мейерхольда, а в родной Пензе целый музейный дом. Биомеханику преподают в ГИТИСе, вузе, где он преподавал. Там же на главной лестнице красуется знаменитый портрет Мейерхольда рядом с учителями — Станиславским и Немировичем-Данченко.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Центр Мейерхольда · ГИТИС <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Юрий Любимов · 1917 — 2014</span>
+      <span class="chrome-folio"><b>13</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Ярославль · Театр им. Вахтангова</span>
+        Человек-эпоха: <em>Юрий Петрович Любимов</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/n8BRVxGd/13.jpg" alt="Юрий Петрович Любимов" style="max-height:125mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Родился в Ярославле в зажиточной семье. Его отец Пётр Захарович был купцом, державши магазин в Охотном Ряду. Мать работала учительницей. После революции, когда Юрию было всего 5 лет, его отца несколько раз арестовывали, а позже отобрали магазин.</p>
+        </div>
+        <div>
+          <p>Режиссер в 1939 году закончил Театральное училище им. Щукина, в 1946-м стал актёром Театра им. Вахтангова. Юрий Любимов поставил в Театре на Таганке более 100 спектаклей. По словам самого режиссера, он проработал на театральном поприще 80 лет.</p>
+          <div class="stat" style="margin-top:16px;">
+            <span class="n">1917</span>
+            <span class="lbl">Год рождения · Ярославль</span>
+          </div>
+          <div class="stat">
+            <span class="n">100</span>
+            <span class="lbl">Спектаклей в Театре на Таганке</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XIII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 80 лет на театральном поприще <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Театр на Таганке · 1964</span>
+      <span class="chrome-folio"><b>14</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">«Добрый человек из Сезуана»</span>
+        Театр <em>на Таганке</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/8g4t5v6R/14.jpg" alt="Афиша «Добрый человек из Сезуана»" style="max-height:120mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Московский театр драмы и комедии, основанный в 1946 году, оказался одним из наименее посещаемых в Москве. В 1964 театром пришел руководить Юрий Любимов. Театр на Таганке открылся спектаклем «Добрый человек из Сезуана».</p>
+        </div>
+        <div>
+          <p>В актерский коллектив театра вошли выпускники курса Любимова из Щукинского театрального училища и актеры Владимир Высоцкий, Валерий Волотухин, Леонид Филатов, Вениамин Смехов и другие.</p>
+          <p>Довольно скоро Таганка прогремела на всю страну, все постановки — «Жизнь Галилея» по Брехту, «Гамлет», «А зори здесь тихие», поэтические представления «Павшие и живые», «Послушайте!» — вызывали огромный общественный резонанс смелостью и новаторством. Под руководством Любимова Таганка приобрела репутацию самого авангардного театра страницы.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XIV</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 1964 · Открытие Таганки <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Эмиграция · 1984</span>
+      <span class="chrome-folio"><b>15</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Указ Президиума Верховного Совета СССР</span>
+        Лишение режиссера <em>советского гражданства</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/0ygfXpxq/15.jpg" alt="Театр на Таганке" style="max-height:115mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">В 1980-х годах у Любимова возник конфликт с партийным руководством СССР. После смерти Высоцкого власти запретили спектакль, посвященный памяти артиста. Кроме того, под запрет попала постановка Любимова по "Борису Годунову". В 1984 году в интервью Times Любимов раскритиковал культурную политику руководства СССР.</p>
+        </div>
+        <div>
+          <p>После этого режиссер был освобожден от должности худрука. Затем последовал указ Президиума Верховного Совета СССР от 11 июля 1984 года за подписью Константина Черненко о лишении Любимова советского гражданства. Имя Любимова исчезло с афиш и программок Театра на Таганке, а сам режиссер оказался в вынужденной эмиграции.</p>
+          <p>Руководителем театра был назначен Анатолий Эфрос. Через год режиссеру было возвращено советское гражданство, а его имя как художественного руководителя вновь появилось на афишах Таганки. На ее сцене он восстановил спектакли "Борис Годунов" и "Владимир Высоцкий",</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XV</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 11 июля 1984 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide s16">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Раскол труппы</span>
+      <span class="chrome-folio"><b>16</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Конфликт внутри театра</span>
+        Раскол <em>труппы</em>
+      </h2>
+
+      <p class="dropcap">Между художественным руководителем Театра на Таганке Юрием Любимовым и частью труппы возник конфликт. Перед репетицией спектакля «Добрый человек из Сезуана», на которую были приглашены студенты и преподаватели театральных вузов Чехии, актёры театра на Таганке отказались выступать, требуя выплатить им деньги. В результате их требования были удовлетворены, но Любимов заявил о своем намерении уйти из театра.</p>
+      <p>Любимов стремился всех держать под контролем, занимал все посты: был и заведующим труппой, и заместителем худрука, секретарем комсомола, художественным руководителем. Он нередко сам признавался, что чувствовал азарт, бунтуя против начальства.</p>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/0VYT1HFX/16.jpg" alt="Сцена из спектакля «Табак»">
+        </div>
+      </div>
+
+      <div class="img-hero" style="margin-top:0;">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/dsxxn8fL/16-1.jpg" alt="Сцена из спектакля Театра на Таганке">
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XVI</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Таганка · конфликт <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Новаторство Любимова</span>
+      <span class="chrome-folio"><b>17</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Поэтический театр</span>
+        Новаторство <em>Любимого</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/8DTT91nL/17.jpg" alt="Мейерхольд, Станиславский, Вахтангов, Брехт" style="max-height:130mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="dropcap">Любимов отказался от традиционного драматического спектакля с линейным сюжетом и психологической игрой. Вместо этого он создавал «поэтический театр» - это синтез стихов, прозы, песен, пантомимы и зрелищных эффектов. Это позволяло выстраивать многозначную структуру, где смысл рождался из столкновения этих фрагментов.</p>
+        </div>
+        <div>
+          <p>Любимов развивал идеи Мейерхольда о биомеханике, требуя от актеров универсальности. «Любимовский» актер должен был владеть пантомимой, вокалом, акробатикой, гротеском и фарсом. Сам Любимов опирался на систему Станиславского, биомеханику Мейерхольда, эпический театр Брехта и фантастический реализм/Вахтангова.</p>
+          <p>Классические тексты (Пушкин, Шекспир, Достоевский) он актуализировал, наполняя их прямыми аллюзиями на советскую действительность . Театр становился политическим высказыванием.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XVII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Синтез · Поэтический театр <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Гамлет · Высоцкий</span>
+      <span class="chrome-folio"><b>18</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2 style="max-width:none;">
+        <span class="kicker">Любимов о Высоцком</span>
+        «Если бы не было <em>Высоцкого</em>…»
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/3Y8xwGn6/18.jpg" alt="Афиша «Гамлет» 1971" style="max-height:125mm;">
+        </div>
+      </div>
+
+      <blockquote style="margin-top:0;">
+        <p>«Я считал, что человек, который сам пишет стихи, умеет прекрасно выразить так много глубоких мыслей, лучше способен проникнуть в разнообразные сложные конфликты: мировоззренческие, философские, моральные и в очень личные, человеческие проблемы, которыми Шекспир обременил своего героя».</p>
+      </blockquote>
+
+      <div class="two-col">
+        <div>
+          <p>В другом интервью Любимов прямо сказал: «Если бы не было Высоцкого, я бы не стал ставить «Гамлета».</p>
+        </div>
+        <div>
+          <p>В театре говорили «Какой Высоцкий Гамлет? Какой он принц?». Директор театра Николай Дупак вспоминал, как Любимов сначала отреагировал: «Не смешите меня, ну какой из него Гамлет?» — но после поддержки Константина Симонова согласился попробовать. И как оказалось, не зря!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XVIII</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Премьера · 29 ноября 1971 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Воспоминания</span>
+      <span class="chrome-folio"><b>19</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">Алла Демидова · Вениамин Смехов</span>
+        Из воспоминаний <em>Аллы Демидовой и Вениамина Смехова</em>
+      </h2>
+
+      <div class="img-hero">
+        <div class="img-frame">
+          <img class="nat" src="https://i.ibb.co/XkrYP1tC/19.jpg" alt="Высоцкий, Демидова, Смехов" style="max-height:135mm;">
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p>Алла Демидова (Гертруда): «Репетиции шли тяжело и конфликтно. Высоцкий был очень увлечён работой. Он хотел играть роль не в той манере, которую от него ждали... Он хотел играть Гамлета просто и скорбно. Высоцкий сносил любые насмешки Любимова. Я поражалась терпению Володи... Любимов нарочно дразнил и унижал Володю при его жене, чтобы разбудить в нём темперамент, злость и эмоциональность. Володя терпел и репетировал. Высоцкий готовился к каждой репетиции, часто предлагал свои варианты сцены, был, как никто, заинтересован в этом спектакле».</p>
+        </div>
+        <div>
+          <p>Вениамин Смехов (Клавдий) вспоминает, что 28 сентября 1970 года состоялась читка «Гамлета», и для Любимова не было сомнений, кто должен играть главную роль. При этом «спектакль тяжело рождался».</p>
+          <p>Алла Демидова описала последний спектакль 18 июля 1980 года — за неделю до смерти Высоцкого: «Он забыл слова, выбегал за кулисы с больным сердцем, но возвращался «точно к своей реплике». После поклонов она пошутила: «А слабо, ребятки, сыграть ещё раз». Высоцкий остро посмотрел: «Слабо, говоришь?».</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XIX</div>
+    <div class="stage-footer"><span class="diamond">◆</span> 18 июля 1980 <span class="diamond">◆</span></div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide">
+    <div class="frame"></div>
+    <header class="chrome">
+      <span class="chrome-mark">Гамлет · 1971 — 1980</span>
+      <span class="chrome-folio"><b>20</b><span class="sep">/</span>20</span>
+    </header>
+
+    <div style="position:relative;z-index:3;">
+      <h2>
+        <span class="kicker">29 ноября 1971</span>
+        Еще раз про <em>«Гамлета»!</em>
+      </h2>
+
+      <p class="dropcap">Премера состоялась 29 ноября 1971 года и стала одним из самых значимых событий в истории Театра на Таганке. Спектакль шел почти десять лет, до самой смерти Высоцкого в 1980 году, и за это время был сыгран более 200 раз. Гамлет в исполнении Высоцкого стал голосом поколения. Это был бунтарь, чья ярость и тоска по справедливости резонировали с ощущением несвободы. Роль Гамлета была мечтой всей жизни Высоцкого. Роль давалась ему тяжело, шла через конфликты с режиссером, но стала вершиной его театральной карьеры. Сам актер говорил: «Я не играю принца Датского. Я стараюсь показать современного человека. Да, может быть, себя». После смерти актера спектакль был немедленно снят с репертуара и больше никогда не возобновлялся на Таганке. Высоцкого похоронили в том самом черном свитере, в котором он играл Гамлета.</p>
+
+      <div class="img-duo" style="min-height:440px;margin-top:20px;">
+        <div>
+          <div class="img-frame">
+            <img class="nat" src="https://i.ibb.co/3YmYD4t0/20-1.jpg" alt="Высоцкий в роли Гамлета">
+          </div>
+        </div>
+        <div>
+          <div class="img-frame">
+            <img class="nat" src="https://i.ibb.co/pBzLggc9/20-2.jpg" alt="Сцена из спектакля «Гамлет»">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num">XX</div>
+    <div class="stage-footer"><span class="diamond">◆</span> Финал <span class="diamond">◆</span></div>
+  </section>
+
+</div>
+</body>
+</html>
